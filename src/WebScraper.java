@@ -27,12 +27,12 @@ public class WebScraper {
     }
 
     public static int wordCount(final String word) {
-        String[] myWord = word.split("\\s+");
+        String[] myWord = word.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
         return myWord.length;
     }
 
     public static int countOneWord(final String word, final String text) {
-        String[] arrayOfText = text.split("\\s+");
+        String[] arrayOfText = text.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
         int count = 0;
         for (int i = 0; i < arrayOfText.length; i++) {
             if (arrayOfText[i].toLowerCase().equals(word.toLowerCase())) {
